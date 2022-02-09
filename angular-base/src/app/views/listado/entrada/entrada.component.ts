@@ -13,8 +13,8 @@ export class EntradaComponent implements OnInit {
 
   constructor() {
     this.entrada = {
-      titulo: '',
-      resumen: ''
+      title: '',
+      body: ''
     }
   }
 

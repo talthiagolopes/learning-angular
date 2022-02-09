@@ -1,3 +1,4 @@
+import { EntradaService } from './../../shared/services/entrada.service';
 import { Component, OnInit } from '@angular/core';
 import { Entrada } from 'src/app/shared/interfaces/interfaces';
 
@@ -8,26 +9,27 @@ import { Entrada } from 'src/app/shared/interfaces/interfaces';
 })
 export class ListadoComponent implements OnInit {
 
-  public listadoEntradas: Entrada[];
+  public listadoEntradas: Array<Entrada> = [];
 
-  constructor() {
-    this.listadoEntradas = [
-      {
-        titulo: 'Introducción a Angular',
-        resumen: 'En esta lección realizaremos una pequeña introducción al mundo de desarrollo con Angular'
-      },
-      {
-        titulo: 'Typescript como lenguaje para Angular',
-        resumen: 'Breve recorrido por el lenguaje de Typescript como base para desarrollar en Angular'
-      },
-      {
-        titulo: 'Componentes en Angular',
-        resumen: 'Aprenderemos a usar los componentes en Angular y el porqué de su importancia'
-      }
-    ];
-  }
+  constructor(private entradaService: EntradaService) { }
 
   ngOnInit(): void {
+    this.recuperarEntradas();
+  }
+
+  private recuperarEntradas(): void {
+    this.entradaService.recuperarEntradas().subscribe(
+      (data) => {
+        this.listadoEntradas = data;
+      }
+      ,
+      (error) => {
+
+      },
+      () => {
+        console.log('Finally');
+      }
+    )
   }
 
   public mostrarTitulo(titulo: string): void {
