@@ -1,3 +1,4 @@
+import { LoginComponent } from './views/login/login.component';
 import  { NgModule }  from  '@angular/core';
 import  { RouterModule, Routes }  from  '@angular/router';
 
@@ -8,6 +9,7 @@ import { PaginaNoEncontradaComponent } from './views/pagina-no-encontrada/pagina
 const  routes:  Routes  = [
   { path: 'listado', component: ListadoComponent },
   { path: 'nosotros', component: AcercaDeNosotrosComponent},
+  { path: 'login', component: LoginComponent },
 
   { path: '', redirectTo: '/listado', pathMatch: 'full'},
   { path: '**', component: PaginaNoEncontradaComponent}
