@@ -1,1 +1,2 @@
-<p>talks works!</p>
+<p>It's works</p>
+<app-talk *ngFor="let talk of talks" [talk]="talk" (talkSelected)="log($event)"></app-talk>
