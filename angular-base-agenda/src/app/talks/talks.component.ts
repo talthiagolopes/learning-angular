@@ -9,8 +9,8 @@ export class TalksComponent implements OnInit {
 
 
   talks: Array<any> = [
-    {title: 'Angular rocks!!'},
-    {title: 'Android rocks!'}
+    {title: 'Angular rocks!!', date: new Date()},
+    {title: 'Android rocks!', date: new Date()}
   ];
 
   constructor() { }
