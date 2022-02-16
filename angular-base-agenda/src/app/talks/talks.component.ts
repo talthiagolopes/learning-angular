@@ -1,3 +1,4 @@
+import { TalksService } from './talks.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,13 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TalksComponent implements OnInit {
 
+  talks: Array<any>;
 
-  talks: Array<any> = [
-    {title: 'Angular rocks!!', date: new Date()},
-    {title: 'Android rocks!', date: new Date()}
-  ];
-
-  constructor() { }
+  constructor(private talksService: TalksService) {
+    this.talks = talksService.getAllTalks();
+  }
 
   ngOnInit(): void {
   }

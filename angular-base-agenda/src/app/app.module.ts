@@ -1,3 +1,4 @@
+import { TalksService } from './talks/talks.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -14,7 +15,7 @@ import { TalkComponent } from './talk/talk.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [TalksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
