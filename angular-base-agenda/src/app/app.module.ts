@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { TalksComponent } from './talks/talks.component';
 import { TalkComponent } from './talk/talk.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { TalkComponent } from './talk/talk.component';
     TalkComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [TalksService],
   bootstrap: [AppComponent]
