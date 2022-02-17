@@ -1,2 +1,4 @@
-<p>It's works</p>
+<label for="search">Search</label>
+<input id="search" type="text" #search>
+
 <app-talk *ngFor="let talk of talks" [talk]="talk" (talkSelected)="log($event)"></app-talk>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { TalksService } from './talks.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-talks',
@@ -11,10 +11,10 @@ export class TalksComponent implements OnInit {
 
   talks: Array<any> = [];
 
-  constructor(private talksService: TalksService, public httpClient: HttpClient) {
+  constructor(private talksService: TalksService) {
     //this.talks = talksService.getAllTalks();
 
-    this.httpClient.get<Array<any>>('https://jsonplaceholder.typicode.com/posts')
+    talksService.getAllTalksOnline()
     .subscribe((talksResult) => {
       this.talks = talksResult
     })
