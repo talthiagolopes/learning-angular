@@ -1,0 +1,18 @@
+<form style="padding: 20px" #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+  <p>New Talk form</p>
+
+  <div>
+    <label for="title">Title of the talk</label>
+    <input type="text" id="title" name="title" [(ngModel)]="title"
+    required>
+  </div>
+
+  <div>
+    <label for="description">Description of the talk</label>
+    <input type="text" id="description" name="description" [(ngModel)]="description"
+    required minlength="4">
+  </div>
+
+  <button type="submit" [disabled]="form.form.invalid">Send talk</button>
+</form>
