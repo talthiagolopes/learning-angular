@@ -1,0 +1,23 @@
+<form style="padding: 20px" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+  <p>New Talk form - Model driven</p>
+
+  <div *ngIf="!descriptionControl.valid && !descriptionControl.pristine" style="background-color: red;">
+      Description invalid!
+  </div>
+
+  <div>
+    <label for="title">Title of the talk</label>
+    <input type="text" id="title" name="title" [formControl]="userForm.controls.title"
+    required>
+  </div>
+
+  <div>
+    <label for="description">Description of the talk</label>
+    <input type="text" id="description" name="description"
+    [formControl]="descriptionControl"
+    required minlength="4">
+  </div>
+
+  <button type="submit" [disabled]="userForm.invalid">Send talk</button>
+</form>
