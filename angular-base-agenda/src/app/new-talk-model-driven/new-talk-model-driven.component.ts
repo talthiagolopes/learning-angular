@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Form, FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-new-talk-model-driven',
@@ -13,12 +13,14 @@ export class NewTalkModelDrivenComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {
 
-    this.descriptionControl = new FormControl('description', Validators.required);
+    this.descriptionControl = new FormControl('description', Validators.compose([Validators.required,Validators.minLength(4)]));
 
     this.userForm = this.formBuilder.group({
       title: '',
       description: this.descriptionControl
     });
+
+    this.descriptionControl.valueChanges.subscribe(x => console.log(x))
 
   }
 

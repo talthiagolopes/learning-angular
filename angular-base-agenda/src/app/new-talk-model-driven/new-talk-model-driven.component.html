@@ -4,6 +4,8 @@
 
   <div *ngIf="!descriptionControl.valid && !descriptionControl.pristine" style="background-color: red;">
       Description invalid!
+
+      {{descriptionControl.errors | json }}
   </div>
 
   <div>
@@ -15,8 +17,7 @@
   <div>
     <label for="description">Description of the talk</label>
     <input type="text" id="description" name="description"
-    [formControl]="descriptionControl"
-    required minlength="4">
+    [formControl]="descriptionControl">
   </div>
 
   <button type="submit" [disabled]="userForm.invalid">Send talk</button>
