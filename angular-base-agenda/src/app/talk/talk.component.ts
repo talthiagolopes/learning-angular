@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-talk',
@@ -16,7 +17,9 @@ export class TalkComponent implements OnInit {
     'padding': '10px'
   }
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute) {
+    activatedRoute.params.subscribe(params => console.log(params.id))
+  }
 
   ngOnInit(): void {
   }

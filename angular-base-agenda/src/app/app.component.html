@@ -2,9 +2,11 @@
 <p>Navegation</p>
 
 <a routerLink="/talks" routerLinkActive="active">Talks</a>
-
 <br/>
-
+<a routerLink="/talks/2" routerLinkActive="active">Go to Talk</a>
+<br/>
+<a [routerLink]="['/talks/', 2]" routerLinkActive="active">Go to Talk 2</a>
+<br/>
 <a routerLink="/new-talk" routerLinkActive="active">New talks</a>
 
 <br/>
