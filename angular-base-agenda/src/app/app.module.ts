@@ -1,3 +1,4 @@
+import { NewTalkGuard } from './Guards/new-talk-guard';
 import { TalksComponent } from './talks/talks.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NewTalkComponent } from './new-talk/new-talk.component';
@@ -13,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 const appRoutes: Routes = [
   {path: 'talks', component: TalksComponent},
   {path: 'talks/:id', component: TalkComponent},
-  {path: 'new-talk', component: NewTalkComponent}
+  {path: 'new-talk', component: NewTalkComponent, canActivate: [NewTalkGuard]}
 ];
 
 @NgModule({
@@ -27,7 +28,7 @@ const appRoutes: Routes = [
     TalksModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [NewTalkGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
