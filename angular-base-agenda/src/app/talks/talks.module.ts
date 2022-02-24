@@ -5,8 +5,12 @@ import { TalkComponent } from './../talk/talk.component';
 import { TalksComponent } from './talks.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
-
+const routes = [
+  {path: 'talks', comnponent: TalkComponent},
+  {path: 'new-talk', comnponent: NewTalkComponent}
+]
 
 @NgModule({
   declarations: [

@@ -1,11 +1,19 @@
+import { TalksComponent } from './talks/talks.component';
+import { RouterModule, Routes } from '@angular/router';
+import { NewTalkComponent } from './new-talk/new-talk.component';
+import { TalkComponent } from './talk/talk.component';
 import { CoreModule } from './core/core.module';
 import { TalksModule } from './talks/talks.module';
-import { TalksService } from './talks/talks.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+
+const appRoutes: Routes = [
+  {path: 'talks', component: TalksComponent},
+  {path: 'new-talk', component: NewTalkComponent}
+];
 
 @NgModule({
   declarations: [
@@ -15,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     HttpClientModule,
     CoreModule,
-    TalksModule
+    TalksModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
