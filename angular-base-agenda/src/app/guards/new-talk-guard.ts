@@ -9,6 +9,6 @@ export class NewTalkGuard  implements CanActivate {
 
     console.log('NewTalkGuard.canActivate');
 
-    return false;
+    return true;
   }
 }

@@ -1,7 +1,6 @@
-import { NewTalkGuard } from './Guards/new-talk-guard';
+import { NewTalkGuard } from './guards/new-talk-guard';
 import { TalksComponent } from './talks/talks.component';
 import { RouterModule, Routes } from '@angular/router';
-import { NewTalkComponent } from './new-talk/new-talk.component';
 import { TalkComponent } from './talk/talk.component';
 import { CoreModule } from './core/core.module';
 import { TalksModule } from './talks/talks.module';
@@ -14,7 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 const appRoutes: Routes = [
   {path: 'talks', component: TalksComponent},
   {path: 'talks/:id', component: TalkComponent},
-  {path: 'new-talk', component: NewTalkComponent, canActivate: [NewTalkGuard]}
+  {path: 'new-talk', loadChildren: () => import('./new-talk/new-talk.module').then(l => l.NewTalkModule),
+  canActivate: [NewTalkGuard]}
 ];
 
 @NgModule({
